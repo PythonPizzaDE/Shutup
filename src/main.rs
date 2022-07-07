@@ -1,6 +1,8 @@
 use gtk::prelude::*;
 use gtk::{Application, ApplicationWindow, Button, Orientation, ButtonBox, ButtonBoxStyle};
 
+use system_shutdown::{shutdown, logout, reboot};
+
 fn main() {
     let app = Application::builder()
         .application_id("org.pythonpizza.Shutup")
@@ -29,15 +31,15 @@ fn main() {
         button_box.add(&logout_button);
 
         shutdown_button.connect_clicked(|_| {
-            eprintln!("Clicked!");
+            shutdown().unwrap();
         });
 
         restart_button.connect_clicked(|_| {
-            eprintln!("Clicked!");
+            reboot().unwrap();
         });
 
         logout_button.connect_clicked(|_| {
-            eprintln!("Clicked!");
+            logout().unwrap();
         });
 
         window.add(&button_box);
