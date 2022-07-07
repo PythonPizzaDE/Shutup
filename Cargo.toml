@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 gtk = "*"
+system_shutdown = "3.0.0"
